@@ -149,7 +149,9 @@ int* newXYInvalid(int choice, int x, int y) {
 void init(char brd[][5], char dis[][5]) {
     // fill the board 
     for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 5; j++)
+        {
+
             brd[i][j] = '*';
             dis[i][j] = '*';
         }
@@ -158,7 +160,7 @@ void init(char brd[][5], char dis[][5]) {
 }
 void randomRanger(char brd[][5]) {
     int i = 0;
-    // random 10 denger
+    // random 10 danger
     for (;;) {
         int a = rand() % 5;
         int b = rand() % 5;
@@ -206,11 +208,11 @@ void play() {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                cout << dis[i][j] << " ";
+                cout << dis[i][j] << " | ";
             }
             cout << endl;
         }
-        cout << "Point: " << currentPoint(p) << endl;
+        cout << "Gongs Left: " << currentPoint(p) << endl;
 
 
 
@@ -229,7 +231,7 @@ void play() {
 
         if (invalid == 0) {
             // set '*' in previous postion
-            dis[px][py] = '*';
+            dis[px][py] = ' ';
 
 
 
@@ -290,12 +292,12 @@ int main()
 
     while (true) {
         brk = 1;
-        cout << "\n--------------------------------------------------------------------------------------" << endl
-            << "\t\t\t Lost in the everglades RPG"
-            << "\n--------------------------------------------------------------------------------------" << endl;
+        cout << "[==========================================================]\n" << endl
+            << "\tLost in the everglades RPG ..."
+            << "\n" << endl;
         choice = returnToMain(choice);
 
-        cout << "\n-------------------------------------------------------------------------------------" << endl;
+        cout << "\n[========================|========|========================]" << endl << endl;
         // drive menu
         switch (choice)
         {
@@ -308,15 +310,15 @@ int main()
             play();
             break;
         case 3:
-            cout << "\n\t Thank you for playng. Good bye! " << endl << endl;
-            cout << "\n-----------------------------------------------------------------------------------" << endl;
+            cout << "\n   Thank you for playing Lost In The Everglades. Good bye! " << endl << endl;
+            cout << "\n[==========================================================]" << endl;
             brk = 0;
             break;
 
 
         default: //Error for invalid entry
             cout << "\n\tError...Invalid option try again" << endl
-                << "\n-------------------------------------------------------------------------------------" << endl << endl;
+                << "\n" << endl << endl;
         }
         if (brk != 1) {
             break;
@@ -329,29 +331,29 @@ int main()
 
 void gameRules()
 {// Shows the complete game rules
-    cout << "\n--------------------------------------------------------------------------------------" << endl
-        << "\t\t\t Lost in the everglades RPG"
-        << "\n\t\t\t Game Rules "
-        << "\n--------------------------------------------------------------------------------------" << endl;
+    cout << "\n"
+        << "\tLost in the everglades RPG"
+        << "\n\tGame Rules "
+        << "\n" << endl;
     cout << "\n A group of tourists has been lost in the Everglades and a ranger must rescue them before time"
-        << "\n runs out."
-        << "\n The Everglades are represented by a 5x5 matrix.The ranger(R) starts the rescue at the upperleft"
-        << "\n corner of the park, the group of tourists(T) are lost at the lower - right corner.The ranger has"
-        << "\n 12 gongs of time to find and rescue the tourists before they perish."
+        << "\n runs out." << endl
+        << "\n The Everglades are represented by a 5x5 matrix. The ranger(R) starts the rescue at the upper-left"
+        << "\n corner of the park, the group of tourists(T) are lost at the lower-right corner. The ranger has"
+        << "\n 12 gongs of time to find and rescue the tourists before they perish." << endl
         << "\n During the journey, the ranger might find dangers(hungry alligator, swarm of giant mosquitoes,"
-        << "\n venomous spider or Python)."
+        << "\n venomous spider or Python)." << endl
         << "\n\n When the ranger finds a danger, they can choose to fight them or hide and wait for them to"
         << "\n leave."
-        << "\n\n\t• If the Ranger hides& waits"
-        << "\nto Moves to the desired cell"
-        << "\nto Loses 5 gongs of time"
-        << "\n\nt• If the Ranger fights & wins"
-        << "\nto Moves to the desired cell"
-        << "\nto Loses 2 gongs of time"
-        << "\nnt• If the Ranger fights & loses"
-        << "\nto Goes back to the initial cell"
-        << "\nto Loses 3 gongs of time"
-        << "\nto The Danger remains in the cell" << endl;
+        << "\n\n\t• If the Ranger hides & waits"
+        << "\n\t  o Moves to the desired cell"
+        << "\n\t  o Loses 5 gongs of time"
+        << "\n\n\t• If the Ranger fights & wins"
+        << "\n\t  o Moves to the desired cell"
+        << "\n\t  o Loses 2 gongs of time"
+        << "\n\n\t• If the Ranger fights & loses"
+        << "\n\t  o Goes back to the initial cell"
+        << "\n\t  o Loses 3 gongs of time"
+        << "\n\t  o The Danger remains in the cell" << endl << endl;
 
 }
 
